@@ -5,6 +5,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
 import {bindActionCreators} from 'redux';
+import CourseList from './CourseList';
 
 // THIS IS A HIGH LEVEL CONTAINER
 class CoursesPage extends React.Component {
@@ -36,11 +37,13 @@ class CoursesPage extends React.Component {
     }
 
     // main render function (while in a container, should really be putting this markup in child components)
+    // {this.props.courses.map(this.courseRow)} USED before CourseList component
+    // FURTHER IDEA: break the input fields into separate components
     render() {
         return(
             <div>
                 <h1>Courses</h1>
-                {this.props.courses.map(this.courseRow)}
+                <CourseList courses={this.props.courses}/>
                 <h2>Add Course</h2>
                 <input
                     type="text"
