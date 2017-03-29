@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
 import {bindActionCreators} from 'redux';
 import CourseList from './CourseList';
+import {browserHistory} from 'react-router';
 
 // THIS IS A HIGH LEVEL CONTAINER
 class CoursesPage extends React.Component {
@@ -19,6 +20,7 @@ class CoursesPage extends React.Component {
         // bind statements (bind functions so this in context of this component and not function itself)
         this.onTitleChange = this.onTitleChange.bind(this);
         this.onClickSave = this.onClickSave.bind(this);
+        this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
     }
 
     // child functions called by render (used within this class/container)
@@ -35,25 +37,39 @@ class CoursesPage extends React.Component {
     courseRow(course, index) {
         return <div key={index}>{course.title}</div>;
     }
+    redirectToAddCoursePage() {
+        browserHistory.push('./course');
+    }
 
     // main render function (while in a container, should really be putting this markup in child components)
     // {this.props.courses.map(this.courseRow)} USED before CourseList component
     // FURTHER IDEA: break the input fields into separate components
     render() {
         return(
-            <div>
-                <h1>Courses</h1>
-                <CourseList courses={this.props.courses}/>
-                <h2>Add Course</h2>
-                <input
-                    type="text"
-                    onChange={this.onTitleChange}
-                    value={this.state.course.title} />
-                <input
-                    type="submit"
-                    value="Save"
-                    onClick={this.onClickSave} />
-            </div>
+        <div>
+            <h1>Courses</h1>
+            <CourseList courses={this.props.courses}/>
+            <h2>Add Course</h2>
+            <input
+                type="submit"
+                value="Add Course"
+                className="btn btn-primary"
+                onClick={this.redirectToAddCoursePage} />
+        </div>
+            // OLD COMPONENT //
+            // <div>
+            //     <h1>Courses</h1>
+            //     <CourseList courses={this.props.courses}/>
+            //     <h2>Add Course</h2>
+            //     <input
+            //         type="text"
+            //         onChange={this.onTitleChange}
+            //         value={this.state.course.title} />
+            //     <input
+            //         type="submit"
+            //         value="Save"
+            //         onClick={this.onClickSave} />
+            // </div>
         );
     }
 }

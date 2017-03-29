@@ -6,7 +6,7 @@ import courseApi from '../api/mockCourse';
 
 // ACTION CREATORS //
 export const createCourse = course => {
-    return {type: types.CREATE_COURSE, course};
+    return {type: types.CREATE_COURSE_SUCCESS, course};
 };
 
 export const loadCoursesSuccess = courses => {
