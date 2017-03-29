@@ -4,4 +4,4 @@
 export default {
     authors: [],
     courses: []
-}
+};

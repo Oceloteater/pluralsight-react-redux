@@ -27,7 +27,7 @@ const CourseList = ({courses}) => {
 
 //courses.map needs specific params using 'course => {' broke it
 
-CourseList.protoTypes = {
+CourseList.propTypes = {
     courses: PropTypes.array.isRequired
 };
 

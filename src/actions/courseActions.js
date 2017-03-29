@@ -14,11 +14,11 @@ export const loadCoursesSuccess = courses => {
 };
 
 export const updateCourseSuccess = course => {
-    return {type: types.UPDATE_COURSE_SUCCESS, course}
+    return {type: types.UPDATE_COURSE_SUCCESS, course};
 };
 
 export const createCourseSuccess = course => {
-    return {type: types.CREATE_COURSE_ACTION, course}
+    return {type: types.CREATE_COURSE_ACTION, course};
 };
 
 
