@@ -38,7 +38,7 @@ class CoursesPage extends React.Component {
         return <div key={index}>{course.title}</div>;
     }
     redirectToAddCoursePage() {
-        browserHistory.push('./course');
+        browserHistory.push('/course');
     }
 
     // main render function (while in a container, should really be putting this markup in child components)
