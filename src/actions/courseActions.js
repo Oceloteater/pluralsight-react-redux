@@ -3,7 +3,7 @@
  */
 import * as types from './actionsTypes';
 import courseApi from '../api/mockCourse';
-import {beginAjaxCall} from './ajaxStatusActions';
+import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
 // ACTION CREATORS //
 export const createCourse = course => {
@@ -41,6 +41,7 @@ export const saveCourse = course => {
             course.id ? dispatch(updateCourseSuccess(savedCourse)) :
                 dispatch(createCourseSuccess(savedCourse));
         }).catch(error => {
+            dispatch(ajaxCallError(error));
             throw(error);
         });
     };
