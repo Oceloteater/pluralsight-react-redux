@@ -16,6 +16,6 @@ export function loadAuthors() {
               dispatch(loadAuthorsSuccess(authors));
           }).catch(error => {
               throw(error);
-          })
+          });
     };
 }

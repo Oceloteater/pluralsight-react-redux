@@ -78,7 +78,7 @@ ManageCoursePage.contextTypes = {
 
 const getCourseById = (courses, courseId) => {
     const course = courses.filter(course => {
-        return course.id === courseId
+        return course.id === courseId;
     });
     if (course.length) {
         return course[0];
